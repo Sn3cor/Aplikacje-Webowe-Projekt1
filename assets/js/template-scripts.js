@@ -1,0 +1,7 @@
+document.querySelectorAll('a').forEach(a => {
+    const path = window.location.pathname.replace("/index.html", "/");
+    const target = a.pathname.replace("/index.html", "/");
+    if (target === path) {
+        a.classList.add("active-link");
+    }
+});
