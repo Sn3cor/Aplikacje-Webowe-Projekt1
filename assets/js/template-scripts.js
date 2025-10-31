@@ -5,3 +5,17 @@ document.querySelectorAll('a').forEach(a => {
         a.classList.add("active-link");
     }
 });
+
+
+document.getElementById('slide').addEventListener("click", ((e) => {
+    let sidebar = document.getElementById('sidebar');
+    sidebar.style.width = "100%"
+    console.log(e)
+}))
+
+document.getElementById('close').addEventListener("click", ((e) => {
+    let sidebar = document.getElementById('sidebar');
+    sidebar.style.width = "0"
+    console.log(e)
+}))
+
