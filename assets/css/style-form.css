@@ -1,0 +1,124 @@
+h1,
+h3,
+h5 {
+    margin: 0;
+}
+
+.wrapper {
+    grid-template-rows: auto 1fr auto;
+}
+
+main {
+    height: 100%;
+}
+
+
+.wrap-form {
+    display: flex;
+    width: 100%;
+    height: inherit;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 0 1em;
+}
+
+.form-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 70%;
+}
+
+.form-text h1 {
+    color: var(--test);
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 70%;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+}
+
+input,
+textarea {
+    border: 2px solid var(--font-color);
+    width: 100%;
+    padding: 0.5em;
+}
+
+textarea {
+    resize: none;
+}
+
+form button {
+    width: 7em;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 1rem;
+    padding: 0.6em 0.8em;
+    transition: all 1s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--bg-color);
+}
+
+
+form button[type="button"] {
+    border: 2px solid var(--sec-font-color);
+    color: var(--sec-font-color);
+}
+
+form button[type="submit"] {
+    border: 2px solid var(--green);
+    color: var(--green);
+}
+
+form button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    transition: all .5s;
+    z-index: -1;
+    transform: translateX(-100%);
+}
+
+form button[type="button"]::before {
+    background-color: var(--sec-font-color);
+}
+
+form button[type="submit"]::before {
+    background-color: var(--green);
+}
+
+form button:hover::before {
+    transform: translateX(0);
+}
+
+form button:hover {
+    color: var(--font-color)
+}
+
+.wrap-buttons {
+    display: flex;
+    justify-content: space-around;
+}
