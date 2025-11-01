@@ -22,16 +22,9 @@ body {
 }
 
 body {
-    margin: 0;
     background-color: var(--bg-color1);
 }
 
-
-/* do zmiany/usuniecia
-header {
-    height: 100px;
-    margin: auto auto;
-} */
 
 footer {
     margin: 0 -7%;

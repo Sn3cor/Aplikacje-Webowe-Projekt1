@@ -24,11 +24,9 @@ main {
 }
 
 
-
 .column h1 {
     color: var(--test);
 }
-
 
 
 form {
@@ -125,8 +123,6 @@ form button:hover {
     .font-size-l {
         font-size: 1.5em;
     }
-
-
 
     main {
         height: 100vh;
