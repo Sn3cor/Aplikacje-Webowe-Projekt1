@@ -52,19 +52,24 @@
                     <form id="form" action="">
                         <div class="input">
                             <label for="name" class="font font-bold font-size-s"> Imie i nazwisko:</label>
-                            <input type="text" name="name" id="name" placeholder="Imię i nazwisko">
+                            <input type="text" name="name" id="name" minlength="3" placeholder="Imię i nazwisko"
+                                required>
+                            <div class="form-error font font-bold"></div>
                         </div>
                         <div class="input">
                             <label for="email" class="font font-bold font-size-s">E-mail:</label>
-                            <input type="email" name="email" id="email" placeholder="mail@example.com">
+                            <input type="email" name="email" id="email" placeholder="mail@example.com" required>
+                            <div class="form-error font"></div>
                         </div>
                         <div class="input">
                             <label for="title" class="font font-bold font-size-s">Tytuł:</label>
-                            <input type="text" name="title" id="title" placeholder="Tytuł">
+                            <input type="text" name="title" id="title" placeholder="Tytuł" required>
+                            <div class="form-error font"></div>
                         </div>
                         <div class="input">
                             <label for="message" class="font font-bold font-size-sd"> Wiadomość:</label>
-                            <textarea name="message" id="message" rows="6" placeholder="Wiadomość"></textarea>
+                            <textarea name="message" id="message" rows="6" placeholder="Wiadomość" required></textarea>
+                            <div class="form-error font font-bold"></div>
                         </div>
                         <div class="wrap-buttons">
                             <button id="clear" type="button" class="font font-bold font-size-s">Wyczyść</button>
