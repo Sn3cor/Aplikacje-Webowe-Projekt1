@@ -42,14 +42,14 @@
         <main>
             <div class="wrap-form">
                 <div class="column">
-                    <div class="form-text">
-                        <h1 class="font font-size-xxl font-xbold">Masz jakieś pytania?</h1>
-                        <h3 class="font font-size-xl font-bold">Skontaktuj się ze mną!</h3>
-                        <h5 class="font font-size-l font-bold">Postaram się jak najszybciej odpowiedzieć ;)</h5>
-                    </div>
+
+                    <h1 class="font font-size-xxl font-xbold">Masz jakieś pytania?</h1>
+                    <h3 class="font font-size-xl font-bold">Skontaktuj się ze mną!</h3>
+                    <h5 class="font font-size-l font-bold">Postaram się jak najszybciej odpowiedzieć ;)</h5>
+
                 </div>
                 <div class="column">
-                    <form action="">
+                    <form id="form" action="">
                         <div class="input">
                             <label for="name" class="font font-bold font-size-s"> Imie i nazwisko:</label>
                             <input type="text" name="name" id="name" placeholder="Imię i nazwisko">
@@ -67,8 +67,8 @@
                             <textarea name="message" id="message" rows="6" placeholder="Wiadomość"></textarea>
                         </div>
                         <div class="wrap-buttons">
-                            <button type="button" class="font font-bold font-size-s">Wyczyść</button>
-                            <button type="submit" class="font font-bold font-size-s">Wyślij</button>
+                            <button id="clear" type="button" class="font font-bold font-size-s">Wyczyść</button>
+                            <button id="submit" type="submit" class="font font-bold font-size-s">Wyślij</button>
                         </div>
                     </form>
                 </div>
@@ -88,5 +88,6 @@
     </div>
 </body>
 <script src="./assets/js/template-scripts.js"></script>
+<script src="./assets/js/form-validation.js"></script>
 
 </html>

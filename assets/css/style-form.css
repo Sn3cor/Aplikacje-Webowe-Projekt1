@@ -4,12 +4,8 @@ h5 {
     margin: 0;
 }
 
-.wrapper {
-    grid-template-rows: auto 1fr auto;
-}
-
 main {
-    height: 100%;
+    height: 77.3vh;
 }
 
 
@@ -22,20 +18,14 @@ main {
 .column {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     width: 50%;
     padding: 0 1em;
 }
 
-.form-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
-    height: 70%;
-}
 
-.form-text h1 {
+
+.column h1 {
     color: var(--test);
 }
 
@@ -121,4 +111,54 @@ form button:hover {
 .wrap-buttons {
     display: flex;
     justify-content: space-around;
+}
+
+@media (max-width:768px) {
+    main .font-size-xxl {
+        font-size: 2.5em;
+    }
+
+    main .font-size-xl {
+        font-size: 2em;
+    }
+
+    .font-size-l {
+        font-size: 1.5em;
+    }
+
+
+
+    main {
+        height: 100vh;
+    }
+
+    .wrap-form {
+        padding: 0em 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        height: 50%;
+        width: 85%;
+        padding: 0.5em 1em;
+    }
+
+    form {
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+    }
+
+    .form-text {
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+    }
 }

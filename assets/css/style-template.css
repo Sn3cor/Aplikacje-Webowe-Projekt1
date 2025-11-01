@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital@0;1&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
 :root {
     --bg-color1: rgb(250, 246, 233);
     --bg-color2: rgb(236, 232, 217);
@@ -11,17 +15,23 @@
     --green: rgb(136, 202, 77)
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
 body {
     margin: 0;
     background-color: var(--bg-color1);
 }
 
 
-
+/* do zmiany/usuniecia
 header {
     height: 100px;
     margin: auto auto;
-}
+} */
 
 footer {
     margin: 0 -7%;
@@ -118,8 +128,9 @@ a:hover {
 }
 
 .wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr 1fr auto;
+    display: flex;
+    flex-direction: column;
+
     max-width: 1354px;
     min-height: 100vh;
     width: 75%;
@@ -274,6 +285,7 @@ a:hover {
 
     footer {
         margin: 0;
+        margin-top: 3em;
         padding: 1.75em 2.5em;
         border: 0;
         border-top: 3px solid var(--font-color);
