@@ -144,10 +144,8 @@ form button:hover {
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        /* odstęp między sekcjami */
         width: 100%;
         min-height: 900px;
-        /* wysokość całej sekcji */
         padding: 2em 0;
     }
 
