@@ -1,27 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital@0;1&display=swap');
 
 * {
+    box-sizing: border-box;
+}
+
+:root {
     --bg-color1: rgb(250, 246, 233);
     --bg-color2: rgb(236, 232, 217);
     /* --sec-color: rgb(255, 183, 0); */
     --sec-color: rgb(173, 153, 196);
     --font-color: rgb(50, 50, 50);
     --sec-font-color: rgb(255, 89, 0);
+    --test: rgb(255, 90, 42);
+    --green: rgb(136, 202, 77)
+}
 
-
+html,
+body {
+    height: 100%;
+    margin: 0;
 }
 
 body {
-    margin: 0;
     background-color: var(--bg-color1);
 }
 
-
-
-header {
-    height: 100px;
-    margin: auto auto;
-}
 
 footer {
     margin: 0 -7%;
@@ -80,7 +83,7 @@ a:hover {
     .sites a:not(.active-link)::after {
         content: "";
         height: 3px;
-        background: rgb(255, 89, 0);
+        background: var(--sec-font-color);
         display: block;
         position: absolute;
         bottom: -3px;
@@ -100,7 +103,7 @@ a:hover {
         content: "";
         width: 100%;
         height: 3px;
-        background: rgb(255, 89, 0);
+        background: var(--sec-font-color);
         position: absolute;
         display: block;
         bottom: -3px;
@@ -118,8 +121,9 @@ a:hover {
 }
 
 .wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr 1fr auto;
+    display: flex;
+    flex-direction: column;
+
     max-width: 1354px;
     min-height: 100vh;
     width: 75%;
@@ -160,6 +164,14 @@ a:hover {
     font-weight: 600;
 }
 
+.font-xbold {
+    font-weight: bold;
+}
+
+
+.font-size-s {
+    font-size: 1em;
+}
 
 .font-size-m {
     font-size: 1.5em;
@@ -169,11 +181,23 @@ a:hover {
     font-size: 2em;
 }
 
+.font-size-xl {
+    font-size: 2.5em;
+}
+
+.font-size-xxl {
+    font-size: 3em;
+}
+
+.font-size-3xl {
+    font-size: 3.5em;
+}
+
 .sticky {
     position: sticky;
     margin: 0 -7%;
     padding: 2.5em;
-    border: 3px solid rgb(73, 73, 73);
+    border: 3px solid var(--font-color);
     border-top: 0;
     border-bottom-left-radius: .8rem;
     border-bottom-right-radius: .8rem;
@@ -245,7 +269,7 @@ a:hover {
         position: sticky;
         padding: 2.5em;
         border: 0;
-        border-bottom: 3px solid rgb(73, 73, 73);
+        border-bottom: 3px solid var(--font-color);
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         background-color: var(--bg-color2);
@@ -254,11 +278,13 @@ a:hover {
 
     footer {
         margin: 0;
+        margin-top: 3em;
         padding: 1.75em 2.5em;
         border: 0;
-        border-top: 3px solid rgb(73, 73, 73);
+        border-top: 3px solid var(--font-color);
         border-top-left-radius: 0;
         border-top-right-radius: 0;
         background-color: var(--sec-color);
+        z-index: 3;
     }
 }

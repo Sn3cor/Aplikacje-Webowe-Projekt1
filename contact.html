@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meow</title>
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="https://kit.fontawesome.com/be74d355cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style-template.css">
-
+    <link rel="stylesheet" href="./assets/css/style-form.css">
 
 </head>
 
@@ -39,16 +40,49 @@
                 </ul>
             </div>
         </nav>
-
-        <header>
-
-        </header>
         <main>
+            <div class="wrap-form">
+                <div class="column">
 
+                    <h1 class="font font-size-xxl font-xbold">Masz jakieś pytania?</h1>
+                    <h3 class="font font-size-xl font-bold">Skontaktuj się ze mną!</h3>
+                    <h5 class="font font-size-l font-bold">Postaram się jak najszybciej odpowiedzieć ;)</h5>
+
+                </div>
+                <div class="column">
+                    <form id="form" action="">
+                        <div class="input">
+                            <label for="name" class="font font-bold font-size-s"> Imie i nazwisko:</label>
+                            <input type="text" name="name" id="name" minlength="3" placeholder="Imię i nazwisko"
+                                required>
+                            <div class="form-error font font-bold"></div>
+                        </div>
+                        <div class="input">
+                            <label for="email" class="font font-bold font-size-s">E-mail:</label>
+                            <input type="email" name="email" id="email" placeholder="mail@example.com" required>
+                            <div class="form-error font"></div>
+                        </div>
+                        <div class="input">
+                            <label for="title" class="font font-bold font-size-s">Tytuł:</label>
+                            <input type="text" name="title" id="title" placeholder="Tytuł" required>
+                            <div class="form-error font"></div>
+                        </div>
+                        <div class="input">
+                            <label for="message" class="font font-bold font-size-sd"> Wiadomość:</label>
+                            <textarea name="message" id="message" rows="6" placeholder="Wiadomość" required></textarea>
+                            <div class="form-error font font-bold"></div>
+                        </div>
+                        <div class="wrap-buttons">
+                            <button id="clear" type="button" class="font font-bold font-size-s">Wyczyść</button>
+                            <button id="submit" type="submit" class="font font-bold font-size-s">Wyślij</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </main>
         <footer>
             <div class="wrap-menu">
-                <p class="font font-bald">Jakub Krupa</p>
+                <p class="font font-bold">Jakub Krupa</p>
 
                 <ul class="icons">
                     <li><a href="https://github.com/Sn3cor"><i class="fa-brands fa-github font-size-m"></i></a></li>
@@ -60,5 +94,6 @@
     </div>
 </body>
 <script src="./assets/js/template-scripts.js"></script>
+<script src="./assets/js/form-validation.js"></script>
 
 </html>

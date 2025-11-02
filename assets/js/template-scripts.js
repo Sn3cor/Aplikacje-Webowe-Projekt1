@@ -7,15 +7,13 @@ document.querySelectorAll('a').forEach(a => {
 });
 
 
-document.getElementById('slide').addEventListener("click", ((e) => {
+document.getElementById('slide').addEventListener("click", (() => {
     let sidebar = document.getElementById('sidebar');
-    sidebar.style.width = "100%"
-    console.log(e)
+    sidebar.style.width = "100%";
 }))
 
-document.getElementById('close').addEventListener("click", ((e) => {
+document.getElementById('close').addEventListener("click", (() => {
     let sidebar = document.getElementById('sidebar');
-    sidebar.style.width = "0"
-    console.log(e)
+    sidebar.style.width = "0";
 }))
 
