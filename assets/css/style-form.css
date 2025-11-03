@@ -1,35 +1,13 @@
-h1,
-h3,
-h5 {
-    margin: 0;
+main .wrap-content {
+    background-color: var(--bg-color2);
 }
 
-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
-
-.wrap-form {
+.wrap-content {
     min-height: 670px;
-    display: flex;
-    width: 100%;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
     justify-content: space-evenly;
-    width: 50%;
-    padding: 0 1em;
-}
-
-
-.column h1 {
-    color: var(--test);
 }
 
 
@@ -64,7 +42,7 @@ form button {
     text-decoration: none;
     border-radius: 1rem;
     padding: 0.6em 0.8em;
-    transition: all 1s;
+    transition: color 1s;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -87,10 +65,10 @@ form button::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 101%;
+    height: 101%;
 
-    transition: all .5s;
+    transition: transform .5s;
     z-index: -1;
     transform: translateX(-100%);
 }
@@ -120,37 +98,9 @@ form button:hover {
     color: var(--sec-font-color);
 }
 
-@media (max-width:768px) {
-
-    main .font-size-xxl {
-        font-size: 2.5em;
-    }
-
-    main .font-size-xl {
-        font-size: 2em;
-    }
-
-    .font-size-l {
-        font-size: 1.5em;
-    }
-
-
-    .wrap-form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
+@media (max-width:1000px) {
+    .wrap-content {
         min-height: 900px;
-        padding: 2em 0;
-    }
-
-    .column {
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        width: 85%;
-        padding: 0.5em 1em;
     }
 
     form {
