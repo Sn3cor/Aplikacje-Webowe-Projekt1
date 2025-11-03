@@ -170,6 +170,7 @@ h5 {
 .column {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 50%;
     padding: 0 1em;
 }
