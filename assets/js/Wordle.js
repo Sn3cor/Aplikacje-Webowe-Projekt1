@@ -17,9 +17,9 @@ class Wordle {
         this.word_list = listLa.concat(listTa).sort();
     }
 
-    getAns = () => {
-        return this.#ans;
-    }
+    // getAns = () => {
+    //     return this.#ans;
+    // }
 
     generateBoard = () => {
         const guess_list = document.querySelector(".guess-list")
@@ -145,7 +145,6 @@ class Wordle {
 
             } else if (/^[a-zA-Z]$/.test(key)) {
                 if (curr_index < 5) {
-                    console.log(curr_index);
                     curr_row.children[curr_index].innerHTML = key.toUpperCase();
                     word += key.toLowerCase();
                     curr_index++;
