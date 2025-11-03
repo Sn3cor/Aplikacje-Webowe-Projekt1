@@ -2,7 +2,7 @@ class Wordle {
     #ans;
     activerow;
     board;
-    word_list;
+    #word_list;
     constructor() {
         this.activerow = 0;
         this.board = this.generateBoard();
@@ -14,12 +14,12 @@ class Wordle {
 
         const listLa = await this.getWordList("wordle-La");
         const listTa = await this.getWordList("wordle-Ta");
-        this.word_list = listLa.concat(listTa).sort();
+        this.#word_list = listLa.concat(listTa).sort();
     }
 
-    getAns = () => {
-        return this.#ans;
-    }
+    // getAns = () => {
+    //     return this.#ans;
+    // }
 
     generateBoard = () => {
         const guess_list = document.querySelector(".guess-list")
@@ -82,7 +82,7 @@ class Wordle {
 
     checkGuessWord = (guess_word) => {
         const err = document.querySelector(".err");
-        if (!this.binary_search(this.word_list, guess_word)) {
+        if (!this.binary_search(this.#word_list, guess_word)) {
             err.style.color = "var(--sec-font-color)"
             err.innerHTML = "Nie istnieje takie słowo";
             return false;
