@@ -78,7 +78,7 @@ h5 {
 }
 
 
-@media (min-width:768px) {
+@media (min-width:992px) {
 
     .sites {
         width: 50%;
@@ -250,7 +250,7 @@ h5 {
 
 
 
-@media (max-width:1000px) {
+@media (max-width:992px) {
 
     main,
     header {

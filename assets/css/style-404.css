@@ -12,16 +12,3 @@ img:hover {
 .wrap-content {
     min-height: 670px;
 }
-
-.column h1 {
-    color: var(--test);
-}
-
-@media (max-width:1000px) {
-
-
-
-    .img {
-        justify-content: center;
-    }
-}
