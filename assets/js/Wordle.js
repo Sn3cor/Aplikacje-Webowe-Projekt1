@@ -44,7 +44,7 @@ class Wordle {
     }
 
     getWordList = async (file_name) => {
-        const response = await fetch(`/assets/js/${file_name}.txt`)
+        const response = await fetch(`assets/js/${file_name}.txt`)
         const text = await response.text();
         return text.split("\n");
     }
