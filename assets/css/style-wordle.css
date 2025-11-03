@@ -1,3 +1,7 @@
+.wrap-content {
+    min-height: 670px;
+}
+
 main .wrap-content {
     background-color: var(--bg-color2);
 }
