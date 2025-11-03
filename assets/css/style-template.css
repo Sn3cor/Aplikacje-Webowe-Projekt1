@@ -25,6 +25,15 @@ body {
     background-color: var(--bg-color1);
 }
 
+main,
+header {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 3em 0;
+}
+
 
 footer {
     margin: 0 -7%;
@@ -62,8 +71,14 @@ a:hover {
     color: var(--sec-color);
 }
 
+h1,
+h3,
+h5 {
+    margin: 0;
+}
 
-@media (min-width:768px) {
+
+@media (min-width:992px) {
 
     .sites {
         width: 50%;
@@ -143,8 +158,32 @@ a:hover {
     width: auto;
 }
 
+.wrap-content {
+    display: flex;
+    width: 100%;
+    padding: 2em;
+    border: 3px solid var(--font-color);
+    border-radius: .8rem;
+}
 
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 0 1em;
+}
 
+.column img {
+    width: 65%;
+    border: 3px solid var(--font-color);
+    border-radius: .8rem;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+}
 
 .icons {
     display: flex;
@@ -158,6 +197,10 @@ a:hover {
     font-family: "Schibsted Grotesk", sans-serif;
     font-style: normal;
     color: var(--font-color);
+}
+
+.wrap-content h1 {
+    color: var(--sec-font-color);
 }
 
 .font-bold {
@@ -207,7 +250,12 @@ a:hover {
 
 
 
-@media (max-width:768px) {
+@media (max-width:992px) {
+
+    main,
+    header {
+        align-items: center;
+    }
 
     a:hover {
         color: var(--sec-font-color);
@@ -264,6 +312,28 @@ a:hover {
 
     }
 
+    .wrap-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        width: 85%;
+        min-height: 900px;
+        padding: 2em 1;
+    }
+
+
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        width: 100%;
+        padding: 0.5em 1em;
+    }
+
+
+
     .sticky {
         margin: 0;
         position: sticky;
@@ -286,4 +356,21 @@ a:hover {
         background-color: var(--sec-color);
         z-index: 3;
     }
+
+    .font-size-xxl {
+        font-size: 2.5em;
+    }
+
+    .font-size-xl {
+        font-size: 2em;
+    }
+
+    .font-size-l {
+        font-size: 1.5em;
+    }
+
+    .img {
+        justify-content: center;
+    }
+
 }
