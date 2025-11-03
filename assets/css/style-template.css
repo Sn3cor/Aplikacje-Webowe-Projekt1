@@ -126,7 +126,7 @@ a:hover {
 
     max-width: 1354px;
     min-height: 100vh;
-    width: 75%;
+    width: 62.5%;
     margin: 0 auto;
 }
 
@@ -225,7 +225,7 @@ a:hover {
         overflow-x: hidden;
         transition: 0.5s;
         position: fixed;
-        z-index: 2;
+        z-index: 4;
         top: 0;
         left: 0;
 
