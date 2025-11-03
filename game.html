@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meow</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
     <script src="https://kit.fontawesome.com/be74d355cc.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style-template.css">
-
-
+    <link rel="stylesheet" href="./assets/css/style-wordle.css">
 </head>
 
 <body>
@@ -40,11 +39,15 @@
                 </ul>
             </div>
         </nav>
-
-        <header>
-
-        </header>
         <main>
+            <div class="wrap-content">
+                <div class="column">
+                    <h1 class="font font-bald font-size-xxl">Wordle</h1>
+                    <div class="guess-list">
+                    </div>
+                    <div class="err font font-bold font-size-l"></div>
+                </div>
+            </div>
 
         </main>
         <footer>
@@ -61,5 +64,6 @@
     </div>
 </body>
 <script src="./assets/js/template-scripts.js"></script>
+<script type="module" src="./assets/js/game.js"></script>
 
 </html>

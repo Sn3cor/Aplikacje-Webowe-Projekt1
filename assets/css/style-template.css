@@ -12,7 +12,8 @@
     --font-color: rgb(50, 50, 50);
     --sec-font-color: rgb(255, 89, 0);
     --test: rgb(255, 90, 42);
-    --green: rgb(136, 202, 77)
+    --green: rgb(136, 202, 77);
+    --yellow: rgb(255, 186, 0);
 }
 
 html,

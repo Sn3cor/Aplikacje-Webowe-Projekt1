@@ -1,0 +1,38 @@
+main .wrap-content {
+    background-color: var(--bg-color2);
+}
+
+.column {
+    align-items: center;
+    width: 100%;
+}
+
+.column h1 {
+    color: var(--sec-font-color);
+}
+
+.guess-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125em;
+}
+
+.guess-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.125em;
+}
+
+.guess {
+    display: block;
+    background-color: var(--font-color);
+    width: 50px;
+    height: 50px;
+    color: white;
+    border: 3px solid black;
+    transition: background-color 1s;
+}
+
+.err {
+    color: var(--sec-font-color);
+}
