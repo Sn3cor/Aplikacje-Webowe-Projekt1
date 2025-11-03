@@ -25,6 +25,7 @@ class Wordle {
         const guess_list = document.querySelector(".guess-list")
 
         for (let i = 0; i < 6; i++) {
+
             const row = document.createElement("div");
             row.classList.add("guess-row");
             guess_list.appendChild(row);
@@ -32,9 +33,9 @@ class Wordle {
 
         for (const child of guess_list.children) {
             for (let i = 0; i < 5; i++) {
-                const el = document.createElement("div");
-                el.classList.add("guess", "font");
 
+                const el = document.createElement("div");
+                el.classList.add("guess", "font", "font-size-l");
                 child.appendChild(el);
             }
         }
@@ -82,8 +83,9 @@ class Wordle {
     checkGuessWord = (guess_word) => {
         const err = document.querySelector(".err");
         if (!this.binary_search(this.word_list, guess_word)) {
+            err.style.color = "var(--sec-font-color)"
             err.innerHTML = "Nie istnieje takie słowo";
-            return false
+            return false;
         }
 
         return true
@@ -91,13 +93,14 @@ class Wordle {
 
     rowInput = () => {
         const index = this.activerow;
-        let word = ""
+        let word = "";
         const curr_row = this.board.children[index]
         const err = document.querySelector(".err");
         let curr_index = 0;
 
         const handleInput = (e) => {
             const key = e.key;
+            err.style.color = "transparent";
             err.innerHTML = "";
             if (key === "Backspace") {
                 if (curr_index > 0) {
@@ -107,6 +110,7 @@ class Wordle {
                 }
             } else if (key === "Enter") {
                 if (curr_index < 5) {
+                    err.style.color = "var(--sec-font-color)"
                     err.innerHTML = "Podane słowo jest za krótkie"
                 }
                 else {
@@ -124,6 +128,7 @@ class Wordle {
                             this.activerow += 1;
                         }
                         else {
+                            err.style.color = "var(--sec-font-color)";
                             err.innerHTML = `Niestety nie odgadłeś hasła: ${this.#ans}`;
                             document.removeEventListener("keydown", handleInput);
                             return
