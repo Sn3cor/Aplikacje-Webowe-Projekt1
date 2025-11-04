@@ -1,5 +1,5 @@
 .wrap-content {
-    min-height: 670px;
+    min-height: 700px;
 }
 
 main .wrap-content {
@@ -65,7 +65,7 @@ main .wrap-content {
     align-items: center;
     background-color: var(--font-color);
     width: 30px;
-    padding: 0 0.5em;
+    padding: 0 0.75em;
     height: 50px;
     color: white;
     border: 3px solid black;
@@ -74,5 +74,28 @@ main .wrap-content {
 }
 
 .modifier {
-    width: fit-content;
+    min-width: fit-content;
+}
+
+@media (max-width:992px) {
+    .wrap-content {
+        min-height: 800px;
+    }
+
+    .err {
+        text-align: center;
+        max-height: 1em;
+    }
+
+    .key {
+        width: 25px;
+        padding: 0.25em;
+    }
+
+}
+
+@media (max-width:442px) {
+    .key {
+        padding: 0 0.1em;
+    }
 }
