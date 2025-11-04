@@ -2,10 +2,12 @@ class Wordle {
     #ans;
     activerow;
     board;
+    keyboard
     word_list;
     constructor() {
         this.activerow = 0;
         this.board = this.generateBoard();
+        this.keyboard = this.generateKeyboard();
     }
 
     init = async () => {
@@ -43,6 +45,45 @@ class Wordle {
 
     }
 
+    generateKeyboard = () => {
+        const parent = document.querySelector(".keyboard")
+        const layout = [
+            ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+            ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+            ['enter', 'z', 'x', 'c', 'v', 'b', 'n', 'm', 'delete']
+        ];
+        const key_map = new Map();
+
+        for (const row of layout) {
+
+            const key_row = document.createElement("div");
+            key_row.classList.add("key-row");
+            parent.appendChild(key_row);
+
+            for (const key of row) {
+                const key_element = document.createElement("div");
+                key_element.classList.add("key", "font", "font-size-s");
+                if (key === 'enter' || key === 'delete') key_element.classList.add('modifier');
+                key_element.innerHTML = key.toUpperCase();
+                key_row.appendChild(key_element);
+                key_map.set(key, key_element);
+
+                key_element.addEventListener("click", (e) => {
+                    console.log(e);
+                    const pressed_key = (key === "delete") ? "Backspace" : (key.charAt(0).toUpperCase()).concat(key.slice(1));
+                    const simulate_key_press = new KeyboardEvent("keydown", {
+                        key: `${pressed_key}`,
+                        bubbles: true
+                    })
+
+                    document.dispatchEvent(simulate_key_press);
+                })
+            }
+        }
+        return key_map
+    }
+
+
     getWordList = async (file_name) => {
         const response = await fetch(`assets/js/${file_name}.txt`)
         const text = await response.text();
@@ -65,17 +106,20 @@ class Wordle {
 
     }
     //moze jakis timeout zeby animka fajniej wygladala
-    colorRow = (guess_word) => {
+    colorLetters = (guess_word) => {
         for (let i = 0; i < 5; i++) {
             const el = this.board.children[this.activerow].children[i];
             if (guess_word[i] == this.#ans[i]) {
                 el.style.backgroundColor = "var(--green)";
+                this.keyboard.get(guess_word[i]).style.backgroundColor = "var(--green)";
             }
             else if (this.#ans.includes(guess_word[i])) {
                 el.style.backgroundColor = "var(--yellow)";
+                this.keyboard.get(guess_word[i]).style.backgroundColor = "var(--yellow)";
             }
             else {
                 el.style.backgroundColor = "grey";
+                this.keyboard.get(guess_word[i]).style.backgroundColor = "grey";
             }
         }
     }
@@ -116,7 +160,7 @@ class Wordle {
                 else {
 
                     if (this.checkGuessWord(word)) {
-                        this.colorRow(word);
+                        this.colorLetters(word);
                         if (word === this.#ans) {
                             err.style.color = "var(--green)";
                             err.innerHTML = `Gratulacje odgadłeś hasło: ${this.#ans}`;

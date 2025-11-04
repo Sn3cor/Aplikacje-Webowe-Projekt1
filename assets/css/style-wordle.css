@@ -45,3 +45,34 @@ main .wrap-content {
     color: transparent;
     transition: color 0.5s;
 }
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125em;
+}
+
+.key-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.125em;
+    justify-content: center;
+}
+
+.key {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--font-color);
+    width: 30px;
+    padding: 0 0.5em;
+    height: 50px;
+    color: white;
+    border: 3px solid black;
+    border-radius: 3px;
+    transition: background-color 1s;
+}
+
+.modifier {
+    width: fit-content;
+}
