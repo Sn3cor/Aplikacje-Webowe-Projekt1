@@ -1,5 +1,5 @@
 .wrap-content {
-    min-height: 700px;
+    min-height: 800px;
 }
 
 main .wrap-content {
@@ -75,6 +75,43 @@ main .wrap-content {
 
 .modifier {
     min-width: fit-content;
+}
+
+button {
+    width: 7em;
+    cursor: pointer;
+    text-decoration: none;
+    border-radius: 1rem;
+    padding: 0.6em 0.8em;
+    transition: color 1s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background-color: var(--bg-color);
+    border: 2px solid var(--yellow);
+    color: var(--yellow);
+}
+
+button:hover {
+    color: var(--font-color)
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 101%;
+    height: 101%;
+
+    transition: transform .5s;
+    z-index: -1;
+    transform: translateX(-100%);
+    background-color: var(--yellow);
+}
+
+button:hover::before {
+    transform: translateX(0);
 }
 
 @media (max-width:992px) {

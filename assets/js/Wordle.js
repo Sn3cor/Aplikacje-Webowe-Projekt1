@@ -163,7 +163,7 @@ class Wordle {
                         this.colorLetters(word);
                         if (word === this.#ans) {
                             err.style.color = "var(--green)";
-                            err.innerHTML = `Gratulacje odgadłeś hasło: ${this.#ans}`;
+                            err.innerHTML = `Gratulacje odgadłeś/aś hasło: ${this.#ans}`;
                             document.removeEventListener("keydown", handleInput);
                             return
                         }
@@ -173,7 +173,7 @@ class Wordle {
                         }
                         else {
                             err.style.color = "var(--sec-font-color)";
-                            err.innerHTML = `Niestety nie odgadłeś hasła: ${this.#ans}`;
+                            err.innerHTML = `Niestety nie odgadłeś/aś hasła: ${this.#ans}`;
                             document.removeEventListener("keydown", handleInput);
                             return
                         }
