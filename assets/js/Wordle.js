@@ -4,10 +4,13 @@ class Wordle {
     board;
     keyboard
     word_list;
+    handleInput;
+
     constructor() {
         this.activerow = 0;
         this.board = this.generateBoard();
         this.keyboard = this.generateKeyboard();
+        this.handleInput = null;
     }
 
     init = async () => {
@@ -22,6 +25,22 @@ class Wordle {
     // getAns = () => {
     //     return this.#ans;
     // }
+
+    finishGame = async () => {
+        document.removeEventListener("keydown", this.handleInput);
+
+        this.board.innerHTML = "";
+        document.querySelector(".keyboard").innerHTML = "";
+
+        document.querySelector(".err").innerHTML = "";
+        document.querySelector(".err").style.color = "transparent";
+
+        this.activerow = 0;
+        this.board = null;
+        this.keyboard = null;
+        this.handleInput = null;
+        this.word_list = null
+    }
 
     generateBoard = () => {
         const guess_list = document.querySelector(".guess-list")
@@ -46,7 +65,7 @@ class Wordle {
     }
 
     generateKeyboard = () => {
-        const parent = document.querySelector(".keyboard")
+        const parent = document.querySelector(".keyboard");
         const layout = [
             ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
             ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
@@ -68,8 +87,7 @@ class Wordle {
                 key_row.appendChild(key_element);
                 key_map.set(key, key_element);
 
-                key_element.addEventListener("click", (e) => {
-                    console.log(e);
+                key_element.addEventListener("click", () => {
                     const pressed_key = (key === "delete") ? "Backspace" : (key.charAt(0).toUpperCase()).concat(key.slice(1));
                     const simulate_key_press = new KeyboardEvent("keydown", {
                         key: `${pressed_key}`,
@@ -105,7 +123,7 @@ class Wordle {
         return false;
 
     }
-    //moze jakis timeout zeby animka fajniej wygladala
+
     colorLetters = (guess_word) => {
         for (let i = 0; i < 5; i++) {
             const el = this.board.children[this.activerow].children[i];
@@ -136,68 +154,76 @@ class Wordle {
     }
 
     rowInput = () => {
-        const index = this.activerow;
-        let word = "";
-        const curr_row = this.board.children[index]
-        const err = document.querySelector(".err");
-        let curr_index = 0;
 
-        const handleInput = (e) => {
-            const key = e.key;
-            err.style.color = "transparent";
-            err.innerHTML = "";
-            if (key === "Backspace") {
-                if (curr_index > 0) {
-                    curr_index--;
-                    word = word.slice(0, -1);
-                    curr_row.children[curr_index].innerHTML = "";
-                }
-            } else if (key === "Enter") {
-                if (curr_index < 5) {
-                    err.style.color = "var(--sec-font-color)"
-                    err.innerHTML = "Podane słowo jest za krótkie"
-                }
-                else {
+        if (this.handleInput) {
+            document.removeEventListener("keydown", this.handleInput);
+            this.handleInput = null;
 
-                    if (this.checkGuessWord(word)) {
-                        this.colorLetters(word);
-                        if (word === this.#ans) {
-                            err.style.color = "var(--green)";
-                            err.innerHTML = `Gratulacje odgadłeś/aś hasło: ${this.#ans}`;
-                            document.removeEventListener("keydown", handleInput);
-                            return
+            const index = this.activerow;
+            let word = "";
+            const curr_row = this.board.children[index]
+            const err = document.querySelector(".err");
+            let curr_index = 0;
+
+            this.handleInput = (e) => {
+                const key = e.key;
+                err.style.color = "transparent";
+                err.innerHTML = "";
+                if (key === "Backspace") {
+                    if (curr_index > 0) {
+                        curr_index--;
+                        word = word.slice(0, -1);
+                        curr_row.children[curr_index].innerHTML = "";
+                    }
+                } else if (key === "Enter") {
+                    if (curr_index < 5) {
+                        err.style.color = "var(--sec-font-color)"
+                        err.innerHTML = "Podane słowo jest za krótkie"
+                    }
+                    else {
+
+                        if (this.checkGuessWord(word)) {
+                            this.colorLetters(word);
+                            if (word === this.#ans) {
+                                err.style.color = "var(--green)";
+                                err.innerHTML = `Gratulacje odgadłeś/aś hasło: ${this.#ans}`;
+                                document.removeEventListener("keydown", this.handleInput);
+                                this.handleInput = null;
+                                return
+                            }
+
+                            if (this.activerow < 5) {
+                                this.activerow += 1;
+                            }
+                            else {
+                                err.style.color = "var(--sec-font-color)";
+                                err.innerHTML = `Niestety nie odgadłeś/aś hasła: ${this.#ans}`;
+                                document.removeEventListener("keydown", this.handleInput);
+                                this.handleInput = null;
+                                return
+                            }
+
+                            document.removeEventListener("keydown", this.handleInput);
+                            this.handleInput = null;
+
+                            if (this.activerow < 6) {
+                                this.rowInput();
+                            }
+
                         }
+                    }
 
-                        if (this.activerow < 5) {
-                            this.activerow += 1;
-                        }
-                        else {
-                            err.style.color = "var(--sec-font-color)";
-                            err.innerHTML = `Niestety nie odgadłeś/aś hasła: ${this.#ans}`;
-                            document.removeEventListener("keydown", handleInput);
-                            return
-                        }
-
-                        document.removeEventListener("keydown", handleInput);
-
-                        if (this.activerow < 6) {
-                            this.rowInput();
-                        }
-
+                } else if (/^[a-zA-Z]$/.test(key)) {
+                    if (curr_index < 5) {
+                        curr_row.children[curr_index].innerHTML = key.toUpperCase();
+                        word += key.toLowerCase();
+                        curr_index++;
                     }
                 }
-
-            } else if (/^[a-zA-Z]$/.test(key)) {
-                if (curr_index < 5) {
-                    curr_row.children[curr_index].innerHTML = key.toUpperCase();
-                    word += key.toLowerCase();
-                    curr_index++;
-                }
             }
+            document.addEventListener("keydown", this.handleInput);
         }
-        document.addEventListener("keydown", handleInput);
+
     }
-
 }
-
 export { Wordle };

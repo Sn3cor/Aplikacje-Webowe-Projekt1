@@ -99,10 +99,10 @@ button:hover {
 button::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -2px;
     left: 0;
     width: 101%;
-    height: 101%;
+    height: 121%;
 
     transition: transform .5s;
     z-index: -1;
