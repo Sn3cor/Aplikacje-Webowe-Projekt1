@@ -158,72 +158,73 @@ class Wordle {
         if (this.handleInput) {
             document.removeEventListener("keydown", this.handleInput);
             this.handleInput = null;
+        }
+        const index = this.activerow;
+        let word = "";
+        const curr_row = this.board.children[index]
+        const err = document.querySelector(".err");
+        let curr_index = 0;
 
-            const index = this.activerow;
-            let word = "";
-            const curr_row = this.board.children[index]
-            const err = document.querySelector(".err");
-            let curr_index = 0;
+        this.handleInput = (e) => {
+            const key = e.key;
+            err.style.color = "transparent";
+            err.innerHTML = "";
+            if (key === "Backspace") {
+                if (curr_index > 0) {
+                    curr_index--;
+                    word = word.slice(0, -1);
+                    curr_row.children[curr_index].innerHTML = "";
+                }
+            } else if (key === "Enter") {
+                if (curr_index < 5) {
+                    err.style.color = "var(--sec-font-color)"
+                    err.innerHTML = "Podane słowo jest za krótkie"
+                }
+                else {
 
-            this.handleInput = (e) => {
-                const key = e.key;
-                err.style.color = "transparent";
-                err.innerHTML = "";
-                if (key === "Backspace") {
-                    if (curr_index > 0) {
-                        curr_index--;
-                        word = word.slice(0, -1);
-                        curr_row.children[curr_index].innerHTML = "";
-                    }
-                } else if (key === "Enter") {
-                    if (curr_index < 5) {
-                        err.style.color = "var(--sec-font-color)"
-                        err.innerHTML = "Podane słowo jest za krótkie"
-                    }
-                    else {
+                    if (this.checkGuessWord(word)) {
+                        this.colorLetters(word);
 
-                        if (this.checkGuessWord(word)) {
-                            this.colorLetters(word);
-                            if (word === this.#ans) {
-                                err.style.color = "var(--green)";
-                                err.innerHTML = `Gratulacje odgadłeś/aś hasło: ${this.#ans}`;
-                                document.removeEventListener("keydown", this.handleInput);
-                                this.handleInput = null;
-                                return
-                            }
-
-                            if (this.activerow < 5) {
-                                this.activerow += 1;
-                            }
-                            else {
-                                err.style.color = "var(--sec-font-color)";
-                                err.innerHTML = `Niestety nie odgadłeś/aś hasła: ${this.#ans}`;
-                                document.removeEventListener("keydown", this.handleInput);
-                                this.handleInput = null;
-                                return
-                            }
-
+                        if (word === this.#ans) {
+                            err.style.color = "var(--green)";
+                            err.innerHTML = `Gratulacje odgadłeś/aś hasło: ${this.#ans}`;
                             document.removeEventListener("keydown", this.handleInput);
                             this.handleInput = null;
-
-                            if (this.activerow < 6) {
-                                this.rowInput();
-                            }
-
+                            return
                         }
-                    }
 
-                } else if (/^[a-zA-Z]$/.test(key)) {
-                    if (curr_index < 5) {
-                        curr_row.children[curr_index].innerHTML = key.toUpperCase();
-                        word += key.toLowerCase();
-                        curr_index++;
+                        if (this.activerow < 5) {
+                            this.activerow += 1;
+                        }
+                        else {
+                            err.style.color = "var(--sec-font-color)";
+                            err.innerHTML = `Niestety nie odgadłeś/aś hasła: ${this.#ans}`;
+                            document.removeEventListener("keydown", this.handleInput);
+                            this.handleInput = null;
+                            return
+                        }
+
+                        document.removeEventListener("keydown", this.handleInput);
+                        this.handleInput = null;
+
+                        if (this.activerow < 6) {
+                            this.rowInput();
+                        }
+
                     }
                 }
-            }
-            document.addEventListener("keydown", this.handleInput);
-        }
 
+            } else if (/^[a-zA-Z]$/.test(key)) {
+                if (curr_index < 5) {
+                    curr_row.children[curr_index].innerHTML = key.toUpperCase();
+                    word += key.toLowerCase();
+                    curr_index++;
+                }
+            }
+        }
+        document.addEventListener("keydown", this.handleInput);
     }
+
 }
+
 export { Wordle };

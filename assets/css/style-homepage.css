@@ -22,8 +22,19 @@ main .wrap-content {
     background-color: var(--sec-color);
 }
 
+.cat {
+    cursor: pointer;
+}
+
+.cat:hover {
+    border-color: var(--sec-font-color);
+}
 
 @media (max-width:992px) {
+
+    .column:nth-child(1) {
+        text-align: center;
+    }
 
     main .wrap-content {
         flex-direction: column-reverse;

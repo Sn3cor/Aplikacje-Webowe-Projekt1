@@ -1,5 +1,5 @@
 const getNewCatSrc = () => {
-    return `./assets/img/IMG_${Math.round(Math.random() * 100) % 26}.webp`
+    return `./assets/img/IMG_${Math.round(Math.random() * 100) % 24}.webp`
 }
 
 const generateNextCat = (cat) => {

@@ -6,7 +6,7 @@ document.getElementById("clear").addEventListener("click", (e) => {
 const customValidity = (input) => {
     const validity = input.validity;
 
-    if (validity.valueMissing) return "Pole nie moze być puste";
+    if (validity.valueMissing) return "Pole nie może być puste";
     if (validity.tooShort && input.name === 'name') return "Imię jest za krótkie";
     if (validity.typeMismatch && input.type === 'email')
         return "Podaj poprawny adres email";
