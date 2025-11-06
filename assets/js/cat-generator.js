@@ -14,7 +14,6 @@ const generateNextCat = (cat) => {
 }
 
 document.querySelector('.cat').addEventListener('click', (e) => {
-    console.log(e);
     const cat = e.target;
     generateNextCat(cat);
 })

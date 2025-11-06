@@ -7,7 +7,6 @@
 :root {
     --bg-color1: rgb(250, 246, 233);
     --bg-color2: rgb(236, 232, 217);
-    /* --sec-color: rgb(255, 183, 0); */
     --sec-color: rgb(173, 153, 196);
     --font-color: rgb(50, 50, 50);
     --sec-font-color: rgb(255, 89, 0);
@@ -78,55 +77,6 @@ h5 {
     margin: 0;
 }
 
-
-@media (min-width:992px) {
-
-    .sites {
-        width: 50%;
-        max-width: 364px;
-    }
-
-    .sites {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .sites .active-link {
-        color: var(--sec-color);
-    }
-
-
-    .sites a:not(.active-link)::after {
-        content: "";
-        height: 3px;
-        background: var(--sec-font-color);
-        display: block;
-        position: absolute;
-        bottom: -3px;
-        left: 0px;
-        width: 100%;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.3s ease;
-        z-index: -1;
-    }
-
-    .sites a:not(.active-link):hover::after {
-        transform: scaleX(1);
-    }
-
-    .sites .active-link::after {
-        content: "";
-        width: 100%;
-        height: 3px;
-        background: var(--sec-font-color);
-        position: absolute;
-        display: block;
-        bottom: -3px;
-        left: 0px;
-        z-index: -1;
-    }
-}
 
 .mobile-menu {
     display: none;
@@ -249,6 +199,54 @@ h5 {
 
 }
 
+@media (min-width:992px) {
+
+    .sites {
+        width: 50%;
+        max-width: 364px;
+    }
+
+    .sites {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .sites .active-link {
+        color: var(--sec-color);
+    }
+
+
+    .sites a:not(.active-link)::after {
+        content: "";
+        height: 3px;
+        background: var(--sec-font-color);
+        display: block;
+        position: absolute;
+        bottom: -3px;
+        left: 0px;
+        width: 100%;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+        z-index: -1;
+    }
+
+    .sites a:not(.active-link):hover::after {
+        transform: scaleX(1);
+    }
+
+    .sites .active-link::after {
+        content: "";
+        width: 100%;
+        height: 3px;
+        background: var(--sec-font-color);
+        position: absolute;
+        display: block;
+        bottom: -3px;
+        left: 0px;
+        z-index: -1;
+    }
+}
 
 
 @media (max-width:992px) {
